@@ -1,0 +1,12 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: node-app
+  labels:
+    app: node-app
+spec:
+  containers:
+  - name: node-app
+    image: erwinjelly/node-app:1.0
+    ports:
+    - containerPort: 80
