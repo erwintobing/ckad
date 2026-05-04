@@ -1,0 +1,18 @@
+apiVersion: apps/v1
+kind: DaemonSet
+metadata:
+  name: logger-app
+spec:
+  selector:
+    matchLabels:
+      name: logger-app
+  template:
+    metadata:
+      labels:
+        name: logger-app
+    spec:
+      containers:
+      - name: logger-app
+        image: busybox:latest
+        command: ["sh"]
+        args: ["-c", "while true; do echo $(date); sleep 5; done;"]

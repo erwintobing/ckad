@@ -1,13 +1,28 @@
 # CKAD Preparation
 
-### Start Minikube
+### Start cluster minikube
 ``
-minikube start
+minikube start --memory=1800mb --cni=calico
+``
+
+### Add worker node
+``
+minikube node add --worker=true --memory=1000mb 
 ``
 
 ### Stop Minikube
 ``
 minikube stop
+``
+
+### Check cluster status
+``
+minikube profile list
+``
+
+### Delete node
+``
+minikube node delete worker-1
 ``
 
 ### Expose service
