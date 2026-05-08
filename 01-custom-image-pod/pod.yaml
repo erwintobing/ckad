@@ -9,4 +9,4 @@ spec:
   - name: node-app
     image: erwinjelly/node-app:1.0
     ports:
-    - containerPort: 80
+    - containerPort: 3000

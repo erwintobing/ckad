@@ -2,8 +2,10 @@
 
 Build a custom image, push it to Docker Hub, then use it in a pod.
 
+**Image:** `erwinjelly/node-app:1.0`
+
 ## Objective
 
 A simple Node.js HTTP server is containerized, published to Docker Hub, and deployed as a Kubernetes Pod exposed via a NodePort Service.
 
-Access the app at `http://<node-ip>:30007`.
+Access the app at `http://<node-ip>:<node-port>`.
