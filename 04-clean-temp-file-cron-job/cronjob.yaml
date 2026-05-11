@@ -1,0 +1,21 @@
+apiVersion: batch/v1
+kind: CronJob
+metadata:
+  name: temp-cleaner
+spec:
+  jobTemplate:
+    metadata:
+      name: temp-cleaner
+    spec:
+      template:
+        metadata: {}
+        spec:
+          containers:
+          - image: busybox:latest
+            name: temp-cleaner
+            resources: {}
+            command: ["/bin/sh", "-c"]
+            args: ["echo Cleaning temp file at $(date)"]
+          restartPolicy: OnFailure
+  schedule: '*/1 * * * *'
+status: {}
