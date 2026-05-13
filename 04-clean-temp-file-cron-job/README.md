@@ -11,4 +11,4 @@ A CronJob is deployed that runs a `busybox` container every minute. The containe
 
 ## Exploratory
 
-- Run the cron job every 30 seconds
+- Run the cron job every 1 hour

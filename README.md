@@ -70,6 +70,7 @@ kubectl create cronjob NAME --image=busybox:latest --shedule="* * * * *" $dr > c
 - Prepare reusable YAML templates for pod, deployment, and service
 - Use force delete (`$now`) when needed
 - Be comfortable with `grep`, `curl`, pipes, and file editing (`vim`/`nano`)
+- Use search linux command `man -k "last lines"`
 
 #### e. Common Mistakes to Avoid
 

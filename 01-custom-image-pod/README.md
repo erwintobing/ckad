@@ -2,7 +2,7 @@
 
 Build a custom image, push it to Docker Hub, then use it in a pod.
 
-**Image:** `erwinjelly/node-app:1.0`
+**Image:** `erwinjelly/nodeapp:1.0`
 
 ## Objective
 
