@@ -67,7 +67,7 @@ kubectl expose po DEPLOY_NAME --name=SVC_NAME --type=NodePort --port=3000 --targ
 kubectl set image deployment/NAME IMAGE_NAME
 
 # Update Service Selector
-kubectl set selecter service/NAME "role=blue"
+kubectl set selector service/NAME "role=blue"
 ```
 
 #### d. Workflow Tips
