@@ -1,20 +1,33 @@
-# 05 - Pod With Ephemeral and Persistent Storage
+# 05 - Pod with Ephemeral and Persistent Storage
 
-Deploy an nginx pod that stores `index.html` on persistent storage and `access.log` on ephemeral storage.
+Cluster: ckadxx<br>
+Namespace: default<br>
+Doc links: Volumes, PersistentVolumes, PersistentVolumeClaims
 
-**Image:** `nginx:alpine`
-**html:** `/usr/share/nginx/html`
-**access:** `/var/log/nginx` 
+## Task
 
-## Objective
+1. Create a **PersistentVolume** and a **PersistentVolumeClaim** for storing `/usr/share/nginx/html`.
 
-An nginx pod is deployed. After creating the pod, write a custom `index.html` that diplay:
+2. Create an **nginx:alpine** Pod that mounts:
+   - The PVC at `/usr/share/nginx/html` (persistent storage)
+   - An `emptyDir` volume at `/var/log/nginx` (ephemeral storage)
 
+3. Write a custom `index.html` to the persistent volume that displays:
 
-```
-Hello from Kubernetes storage.
-```
+    ```
+    Hello from Kubernetes storage.
+    ```
 
-After deleting and recreating the pod, `localhost:8080` should still display the same `index.html` above.
+4. Expose the Pod locally using port-forward, then verify the page is served correctly.
 
-Ephemeral storage (`access.log`) does not survive pod deletion.
+    <details>
+    <summary>Show command</summary>
+
+    ```bash
+    $ kubectl port-forward <pod-name> 8080:80
+    $ curl localhost:8080
+    ```
+
+    </details>
+
+5. Delete and recreate the Pod, then verify that `index.html` still displays the same content (persistent), and that `access.log` is gone (ephemeral).

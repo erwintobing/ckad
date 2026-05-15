@@ -1,22 +1,47 @@
 # 06 - Multi-Container Pod with Init and Sidecar
 
-Deploy an nginx pod with an init container and a sidecar container, all sharing an ephemeral volume.
+Cluster: ckadxx<br>
+Namespace: default<br>
+Doc links: Init Containers, Sidecar Containers, Volumes
 
-**Init container image:** `busybox`<br>
-**Main container image:** `nginx:alpine`<br>
-**Sidecar container image:** `busybox:latest`<br>
-**Shared volume:** `emptyDir` mounted at `/shared` (init & sidecar) and `/var/log/nginx` (main)
+## Task
 
-## Objective
+1. Create a Pod with a shared `emptyDir` volume and three containers:
+   - **init-app** (`busybox`) — runs before the main container, writes `App starting up...` to `/shared/startup.log`, then exits.
+   - **main-app** (`nginx:alpine`) — serves on port 80 with its `/var/log/nginx` mounted to the shared volume.
+   - **sidecar-app** (`busybox:latest`) — runs alongside the main container and continuously tails `/var/log/nginx/access.log` to stdout.
 
-A pod is deployed with 3 containers sharing an `emptyDir` volume:
+2. Verify the init container completed and the main and sidecar containers are running. Then exec into **main-app** and confirm `startup.log` contains the expected message.
 
-1. **init-app** — runs before the main container starts. It mounts the shared volume at `/shared` and writes an initial log entry:
-   ```
-   App starting up...
-   ```
-   to `/shared/startup.log`, then exits.
+    <details>
+    <summary>Show command</summary>
 
-2. **main-app** — serves on port 80. The shared volume is mounted at `/var/log/nginx`, so nginx writes `access.log` into the shared volume. Accessing localhost:3000 in the browser displays nginx default page.
+    ```bash
+    $ kubectl get pod <pod-name>
+    $ kubectl exec <pod-name> -c main-app -- cat /var/log/nginx/startup.log
+    ```
 
-3. **sidecar-app** — runs alongside nginx. It mounts the same shared volume at `/var/log/nginx` and continuously tails `access.log`, printing all entries to stdout.
+    </details>
+
+3. Expose the Pod locally using port-forward and send a request to generate an access log entry.
+
+    <details>
+    <summary>Show command</summary>
+
+    ```bash
+    $ kubectl port-forward <pod-name> 8080:80
+    $ curl localhost:8080
+    ```
+
+    </details>
+
+4. Check the sidecar container logs and confirm the access log entry appears.
+
+    <details>
+    <summary>Show command</summary>
+
+    ```bash
+    $ kubectl logs <pod-name> -c sidecar-app
+    ```
+
+    </details>

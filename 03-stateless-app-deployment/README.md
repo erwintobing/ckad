@@ -1,9 +1,17 @@
 # 03 - Stateless App Deployment
 
-Deploy a stateless web app using a Deployment controller with 3 replicas.
+Cluster: ckadxx<br>
+Namespace: default<br>
+Doc links: Deployments, Services
 
-**Image:** `nginx:alpine`
+## Task
 
-## Objective
+1. Create a **Deployment** using the **nginx:alpine** image with **3 replicas**.
 
-A stateless web app is deployed via a Kubernetes Deployment with 3 replicas. A Service is created to expose the containers outside of the cluster. Accessing the web app in the browser display nginx default page.
+2. Create a **NodePort** Service to expose the Deployment.
+
+3. Verify the Pods are running and the app is accessible by running the following command and checking that it returns HTML content.
+
+    ```bash
+    $ curl localhost:<node-port>
+    ```

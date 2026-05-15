@@ -1,18 +1,18 @@
 apiVersion: apps/v1
 kind: DaemonSet
 metadata:
-  name: logger-app
+  name: date-printer
 spec:
   selector:
     matchLabels:
-      name: logger-app
+      name: date-printer
   template:
     metadata:
       labels:
-        name: logger-app
+        name: date-printer
     spec:
       containers:
-      - name: logger-app
+      - name: date-printer
         image: busybox:latest
         command: ["sh"]
         args: ["-c", "while true; do echo $(date); sleep 5; done;"]

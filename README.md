@@ -13,10 +13,6 @@ CKAD is about pattern recognition + speed execution, not deep theory.
 | `k`   | `kubectl` |
 | `kg`  | `kubectl get` |
 | `kc`  | `kubectl config get-contexts` |
-| `kcs` | `kubectl config set-context --current -n` |
-| `ke`  | `kubectl explain --recursive` |
-| `ka`  | `kubectl apply -f` |
-| `kr`  | `kubectl delete -f` |
 | `kd`  | `kubectl describe` |
 | `kl`  | `kubectl logs` |
 
@@ -62,6 +58,15 @@ kubectl create deployment NAME --image=nginx:latest --replicas=3 --port:80  $dr 
 
 # Cron Job
 kubectl create cronjob NAME --image=busybox:latest --shedule="* * * * *" $dr > cronjob.yaml
+
+# Get All
+kubectl get all
+
+# Update Deployment Image
+kubectl set image deployment/NAME IMAGE_NAME
+
+# Update Service Selector
+kubectl set selecter service/NAME "role=blue"
 ```
 
 #### d. Workflow Tips
