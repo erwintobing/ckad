@@ -42,9 +42,6 @@ Use these to generate YAML quickly, then edit only what's needed:
 # Pod
 kubectl run NAME --image=nginx --port=80 $dr > pod.yaml
 
-# Service
-kubectl create service nodeport NAME --tcp=5678:8080 $dr > service.yaml
-
 # Daemonset
 # Note: there is no `kubectl create daemonset` command.
 # Generate a Deployment manifest, then edit it:
@@ -61,6 +58,10 @@ kubectl create cronjob NAME --image=busybox:latest --shedule="* * * * *" $dr > c
 
 # Get All
 kubectl get all
+
+# Create service by expose pod, deployment
+kubectl expose po POD_NAME  --name=SVC_NAME --type=NodePort --port=3000 --target-port=80
+kubectl expose po DEPLOY_NAME --name=SVC_NAME --type=NodePort --port=3000 --target-port=80
 
 # Update Deployment Image
 kubectl set image deployment/NAME IMAGE_NAME
