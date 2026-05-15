@@ -1,22 +1,21 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: blue-deployment
+  name: canary-deployment
 spec:
-  replicas: 2
+  replicas: 1
   selector:
     matchLabels:
-      app: nginx
-      role: blue
+      track: canary
   template:
     metadata:
       labels:
-        app: nginx
-        role: blue
+        track: canary
+        app: customer-app
     spec:
       containers:
-      - name: blue
-        image: erwinjelly/ckad:blue
+      - name: canary
+        image: erwinjelly/ckad:canary
         imagePullPolicy: IfNotPresent
         ports:
         - containerPort: 80

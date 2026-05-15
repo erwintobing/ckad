@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
       - name: green
-        image: erwinjelly/ckad-green
+        image: erwinjelly/ckad:green
         imagePullPolicy: IfNotPresent
         ports:
         - containerPort: 80
