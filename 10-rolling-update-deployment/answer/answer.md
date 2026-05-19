@@ -7,10 +7,17 @@ Doc links: Deployments, Services
 
 The starting folder contains Kubernetes YAML files to create deployments and services.
 
-1. Run `kubectl create` with `--save-config` to deploy the Deployment and Service, saving the config as an annotation for future `kubectl apply` and rollout tracking.
+1. Run `kubectl create` with `--save-config` to deploy the Deployment and Service, saving the config as an annotation for future `kubectl apply` and rollout tracking:
 
+    ```bash
+    $ kubectl create -f ./ --save-config
+    ```
 
 2. Run kubectl get all and notice that 4 Pods, 1 Deployment, and 1 ReplicaSet have successfully been deployed.
+
+    ```bash
+    $ kubectl get all
+    ```
 
 3. Open a separate command window and run one of the following scripts based on your OS to call into the nginx Pods:
 
@@ -27,8 +34,20 @@ The starting folder contains Kubernetes YAML files to create deployments and ser
 
 4. Change the image version in `nginx.deployment.yml` to the one shown in the comment right next to it. Save the file.
 
-5. Run `kubectl apply` with `--record` to apply the updated Deployment and record the command as the change-cause annotation in rollout history.
+    ```bash
+    $ kubectl get all
+    ```
+
+5. Run `kubectl apply` with `--record` to apply the updated Deployment and record the command as the change-cause annotation in rollout history:
+
+    ```bash
+    $ kubectl apply -f nginx.deployment.yml --record
+    ```
 
 6. Go back and check the curl commands being made by the script and you should see no interuption in the service. This demonstrates a Rolling Deployment in action.
 
-7. Run `kubectl rollout status` to watch the rolling update progress of the Deployment.
+7. Run `kubectl rollout status` to watch the rolling update progress of the Deployment:
+
+    ```bash
+    $ kubectl rollout status deployment my-nginx
+    ```
