@@ -137,6 +137,7 @@ minikube node delete worker-1
 
 # Expose service
 minikube service <service-name> --url
+minikube service --all
 
 # Enable ingress addon
 minikube addons enable ingress
