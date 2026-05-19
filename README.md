@@ -68,6 +68,28 @@ kubectl set image deployment/NAME IMAGE_NAME
 
 # Update Service Selector
 kubectl set selector service/NAME "role=blue"
+
+# Create from File & Save Config Annotation (enables rollout history + undo)
+kubectl create -f deployment.yaml --save-config
+
+# Record the command in the annotation
+kubectl apply -f deployment.yaml --record
+
+# Add annotation to the current deployment version
+kubectl annotate deploy NAME kubernetes.io/change-cause="Change to nginx:1.23.1" --overwrite=true
+
+# Check list of deploument change-cause
+kubectl get deploy NAME -o json | jq '.metadata.annotations."kubernetes.io/change-cause"'
+
+# Check deployment rollout status
+kubectl rollout status deploy NAME
+
+# Check deployment rollout history
+kubectl rollout history deploy NAME
+
+# Rollback deployment to previous revision
+kubectl rollout undo deploy NAME
+kubectl rollout unde deploy NAME --to-revision=5
 ```
 
 #### d. Workflow Tips
@@ -114,6 +136,7 @@ kubectl logs <pod-name>
 #### i. Reference
 - https://medium.com/@san.agarwal10/my-journey-to-pass-ckad-exam-312d24382177
 - https://medium.com/@shafath.001/mastering-ckad-a-journey-through-the-certified-kubernetes-application-developer-exam-500e8e0faa3c
+- https://github.com/nigelpoulton/ckad
 
 ---
 
