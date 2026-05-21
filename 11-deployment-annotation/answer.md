@@ -51,7 +51,6 @@ Doc links: Deployments
 
 8. List the Deployment's rollout status.
 
-
     ```bash
     kubectl rollout status deploy web-app
     ```

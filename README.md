@@ -89,7 +89,25 @@ kubectl rollout history deploy NAME
 
 # Rollback deployment to previous revision
 kubectl rollout undo deploy NAME
-kubectl rollout unde deploy NAME --to-revision=5
+kubectl rollout undo deploy NAME --to-revision=5
+
+# Find helm charts and respositories
+helm search hub nginx -o yaml 
+helm repo add binami https://charts.bitnami.com/bitnami
+helm search repo nginx
+
+# Learn about helm chart value
+helm show values bitnami --version=15.0.9
+helm pull --untar
+
+# Install, upgrade, and uninstall helm chart
+helm install
+helm upgrade
+helm uninstall
+
+# Check helm chart info
+helm status
+helm list
 ```
 
 #### d. Workflow Tips

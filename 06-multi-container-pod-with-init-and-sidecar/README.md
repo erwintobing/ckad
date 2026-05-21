@@ -7,18 +7,18 @@ Doc links: Init Containers, Sidecar Containers, Volumes
 ## Task
 
 1. Create a Pod with a shared `emptyDir` volume and three containers:
-   - **init-app** (`busybox`) — runs before the main container, writes `App starting up...` to `/shared/startup.log`, then exits.
-   - **main-app** (`nginx:alpine`) — serves on port 80 with its `/var/log/nginx` mounted to the shared volume.
-   - **sidecar-app** (`busybox:latest`) — runs alongside the main container and continuously tails `/var/log/nginx/access.log` to stdout.
+   - **init** (`busybox:latest`) — runs before the main container, writes `App starting up...` to `/shared/startup.log`, then exits.
+   - **web** (`nginx:alpine`) — serves on port 80 with its `/var/log/nginx` mounted to the shared volume.
+   - **logger** (`busybox:latest`) — runs alongside the main container and continuously tails `/var/log/nginx/access.log` to stdout.
 
-2. Verify the init container completed and the main and sidecar containers are running. Then exec into **main-app** and confirm `startup.log` contains the expected message.
+2. Verify the init container completed and the main and sidecar containers are running. Then exec into **web** and confirm `startup.log` contains the expected message.
 
     <details>
     <summary>Show command</summary>
 
     ```bash
     $ kubectl get pod <pod-name>
-    $ kubectl exec <pod-name> -c main-app -- cat /var/log/nginx/startup.log
+    $ kubectl exec <pod-name> -c web -- cat /var/log/nginx/startup.log
     ```
 
     </details>
