@@ -20,7 +20,7 @@ Your system has **ckad:stable** and **ckad:canary** images available and the cur
     <summary>Show command</summary>
 
     ```bash
-    $ kubectl run -it --image=alpine --restart=Never temp-pod
+    $ kubectl run -it --rm --image=alpine --restart=Never temp-pod
     ```
 
     </details>
