@@ -1,0 +1,9 @@
+apiVersion: ops.example.com/v1alpha1
+kind: MaintenanceWindow
+metadata:
+  name: db-downtime
+spec:
+  serviceName: "customer"
+  startTime: "2026-06-03T17:30:00Z"
+  endTime: "2026-06-03T17:30:00Z"
+  reason: "Database upgrade and security patching."

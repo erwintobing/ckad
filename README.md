@@ -156,6 +156,7 @@ kubectl logs <pod-name>
 - https://medium.com/@shafath.001/mastering-ckad-a-journey-through-the-certified-kubernetes-application-developer-exam-500e8e0faa3c
 - https://github.com/nigelpoulton/ckad
 - https://github.com/pluralsight-cloud/application-observability-maintenance-ckad/tree/main/1_Understand-API-Deprecations
+- https://github.com/pluralsight-cloud/application-environment-configuration-security-ckad
 ---
 
 ### 2. Minikube Env Setup
