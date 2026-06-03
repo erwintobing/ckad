@@ -6,7 +6,7 @@ Doc links: Init Containers, Sidecar Containers, Volumes
 
 ## Task
 
-1. Create a Pod with a shared `emptyDir` volume and three containers:
+1. Create a Pod named `multi` with an `emptyDir` volume name `shared` with three containers:
    - **init** (`busybox:latest`) — runs before the main container, writes `App starting up...` to `/shared/startup.log`, then exits.
    - **web** (`nginx:alpine`) — serves on port 80 with its `/var/log/nginx` mounted to the shared volume.
    - **logger** (`busybox:latest`) — runs alongside the main container and continuously tails `/var/log/nginx/access.log` to stdout.

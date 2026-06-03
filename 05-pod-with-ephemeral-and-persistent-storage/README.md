@@ -10,7 +10,6 @@ Doc links: Volumes, PersistentVolumes, PersistentVolumeClaims
 
 2. Create an **nginx:alpine** Pod that mounts:
    - The PVC at `/usr/share/nginx/html` (persistent storage)
-   - An `emptyDir` volume at `/var/log/nginx` (ephemeral storage)
 
 3. Write a custom `index.html` to the persistent volume that displays:
 
