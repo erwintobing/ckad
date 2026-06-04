@@ -6,7 +6,7 @@ Doc links: Services, Deployments
 
 ## Task
 
-The starting folder contains Kubernetes YAML files to create Blue/Green deployments and services. Images you'll use are also available on the system. View the files in the starting folder using:
+The starting folder contains Kubernetes YAML files to create Blue/Green deployments and services. Images you'll use are also available on the system. View the files in the `starting` folder using:
 
 ```bash
 $ ls starting -l

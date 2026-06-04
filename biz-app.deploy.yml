@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: biz-app
+  name: biz-app
+spec:
+  replicas: 5
+  selector:
+    matchLabels:
+      app: biz-app
+  strategy: {}
+  template:
+    metadata:
+      labels:
+        app: biz-app
+    spec:
+      containers:
+      - image: nginx:7.85.1-alpine
+        name: nginx
+        resources: {}
+status: {}

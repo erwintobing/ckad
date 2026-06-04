@@ -6,9 +6,9 @@ Doc links: Services, Deployments
 
 ## Task
 
-Your system has **ckad:stable** and **ckad:canary** images available and the current folder contains YAML files to be used to complete the task.
+Your system has **ckad:stable** and **ckad:canary** images available and the `starting` folder contains YAML files to be used to complete the task.
 
-1. Create resources in Kubernetes using the YAML files available in the current folder. List all the running Pods.
+1. Create resources in Kubernetes using the YAML files available in the starting folder. List all the running Pods.
 
 2. Scale the **stable** Deployment to **6** replicas and the **canary** Deployment replicas to **2**.
 

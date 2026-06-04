@@ -5,7 +5,7 @@ Doc links: Deployments, Services
 
 ## Task
 
-The starting folder contains Kubernetes YAML files to create deployments and services.
+The `starting` folder contains Kubernetes YAML files to create deployments and services.
 
 1. Run `kubectl create` with `--save-config` to deploy the Deployment and Service, saving the config as an annotation for future `kubectl apply` and rollout tracking.
 

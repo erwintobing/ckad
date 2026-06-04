@@ -9,7 +9,7 @@ Doc links: Logs
 
 2. Ensure the pod deployed without error - if there is an error, trackdown which container is the source of the error and view its container logs.
 
-3. View the logs for any previouse deployment of that container.
+3. View the logs for any previous deployment of that container.
 
 4. Resolve the issue and redeploy the pod.
 

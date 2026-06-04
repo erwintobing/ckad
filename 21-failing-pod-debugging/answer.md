@@ -17,8 +17,6 @@ kubectl describe startup-app
 kubectl debug -ti startup-app --image=busybox --target=main
 kubectl debug -ti startup-app --image=busybox --share-processes --copy-to=web-app-debug
 
-kubectl debug -ti 
-
 kubectl create cm app-startup-scripts --from-file=startup-app
 ```
 
