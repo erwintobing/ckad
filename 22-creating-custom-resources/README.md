@@ -11,7 +11,7 @@ Doc links: Custom Resource Definition
 
 3. The CRD should contain properties for `startTime` and `endTime` using the `date-time` format, as well as an input for the `serviceName` and `reason` behind the maintenance.
 
-4. Include property description as well as general description of the overall CRD. The scope should be cluster-wide. The required fields are serviceName, startDate, and endDate.
+4. Include property description as well as general description of the overall CRD. The scope should be `cluster-wide`. The required fields are serviceName, startDate, and endDate.
 
 ```
 # general description

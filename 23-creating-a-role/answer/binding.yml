@@ -1,0 +1,15 @@
+apiVersion: rbac.authorization.k8s.io/v1
+kind: RoleBinding
+metadata:
+  name: backend-access
+roleRef:
+  apiGroup: rbac.authorization.k8s.io
+  kind: Role
+  name: backend-role
+subjects:
+- apiGroup: rbac.authorization.k8s.io
+  kind: User
+  name: bbelcher
+- apiGroup: rbac.authorization.k8s.io
+  kind: Group
+  name: backend
