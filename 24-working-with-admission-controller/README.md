@@ -5,7 +5,7 @@ Doc links: Admission Controller
 
 ## Task
 
-Make sure to add NodeRestriction and DenyServiceExternalPs in the allowed admission controller in kube api-server.
+Make sure to add `NodeRestriction` and `DenyServiceExternalIPs` in the allowed admission controller in kube api-server.
 
 1. In attemp to simplify namespaces, all teams are now using the same `dev` namespace. Remove the the  `frontend-dev` namespace from the cluster. Quit the command (ctrl + c) before the deletion command completes.
 

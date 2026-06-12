@@ -11,4 +11,4 @@ Doc links: Requests, limits, and Quota
 
 3. Individual resources within this namespace should not exceed `1 CPU` or `1 Gi memory`, with defaults request set to `100m CPU` and `128 Mi memory`; default limits should be `500m CPU` and `512Mi memory`.
 
-4. Once the namespace and related resource definitions have been created, attempt to deploy the pod found at `testing-pod.yml` and `testing-deploy.yml`. Resolve any issues with the pod definition.
+4. Once the namespace and related resource definitions have been created, attempt to deploy the pod found at `testing-pod.yml`. Resolve any issues with the pod definition.

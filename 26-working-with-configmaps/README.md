@@ -21,6 +21,6 @@ timeout=7
 
 3. Update the `demo-pod.yml` manifest to pull in the ConfigMap as-is. Apply the manifest and check the logs like in step 1 should be displayed.
 
-4. Update the `dev-demo-pod.yml` uses this data, but each value needs to be pulled in individually, because the pod expects all environmental variable to have keys in ALL CAPS. Apply the manifest and check the logs like in step 1 should be displayed.
+4. Update the `dev-demo-pod.yml` uses the ConfigMap, but each value needs to be pulled in individually, because the pod expects all environmental variable to have keys in ALL CAPS. Apply the manifest and check the logs like in step 1 should be displayed.
 
 5. Finally, update the `volume-pod.yml` to pull in the ConfigMap as a volume. Apply the manifest and exec to the pod and list the config directory.
